@@ -36,7 +36,7 @@ body {
 body.hub-page {
   background:
     linear-gradient(180deg, rgba(20,19,26,0.62) 0%, rgba(20,19,26,0.85) 45%, var(--bg) 85%),
-    url("images/vineyard-bg.jpg");
+    url("vineyard-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -331,6 +331,72 @@ textarea { min-height: 64px; }
 .pending-badge { font-family: var(--font-data); font-size: 11px; color: var(--brass); text-align: center; margin-top: 8px; }
 
 body.has-submit-bar { padding-bottom: 96px; }
+
+/* ---------- Vineyard directory ---------- */
+.vineyard-list { display: flex; flex-direction: column; gap: 12px; padding-bottom: 20px; }
+
+.vineyard-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.vineyard-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.vineyard-varieties {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.vineyard-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.vineyard-stats .stat {
+  font-family: var(--font-data);
+  font-size: 13px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+.vineyard-stats .stat-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 2px;
+}
+
+.vineyard-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.vineyard-link {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-top: 12px;
+}
 
 /* ---------- Recent entries ---------- */
 .recent-list { display: flex; flex-direction: column; gap: 8px; }
