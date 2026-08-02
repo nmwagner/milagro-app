@@ -33,6 +33,15 @@ body {
   padding-bottom: 40px;
 }
 
+body.hub-page {
+  background:
+    linear-gradient(180deg, rgba(20,19,26,0.62) 0%, rgba(20,19,26,0.85) 45%, var(--bg) 85%),
+    url("images/vineyard-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 ::selection { background: var(--wine); color: var(--text); }
 
 button, input, textarea { font-family: inherit; color: inherit; }

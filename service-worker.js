@@ -1,4 +1,4 @@
-const CACHE_NAME = "milagro-app-v3";
+const CACHE_NAME = "milagro-app-v4";
 const SHELL_FILES = [
   "./index.html",
   "./ferm-log.html",
@@ -7,6 +7,7 @@ const SHELL_FILES = [
   "./hub.js",
   "./ferm.js",
   "./manifest.json",
+  "./images/vineyard-bg.jpg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
 ];
