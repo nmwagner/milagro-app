@@ -18,7 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="vineyard-varieties">${v.varieties}</div>
       ${stats.length ? `<div class="vineyard-stats">${stats.join("")}</div>` : ""}
       ${v.note ? `<div class="vineyard-note">${v.note}</div>` : ""}
-      <a class="vineyard-link" href="${v.url}" target="_blank" rel="noopener">Open full record &rarr;</a>
+      <div class="vineyard-links">
+        <a class="vineyard-link" href="${v.url}" target="_blank" rel="noopener">Open full record &rarr;</a>
+        ${
+          v.lat != null && v.lng != null
+            ? `<a class="vineyard-link" href="https://www.google.com/maps?q=${v.lat},${v.lng}" target="_blank" rel="noopener">View on map &rarr;</a>`
+            : ""
+        }
+      </div>
     `;
     wrap.appendChild(card);
   });

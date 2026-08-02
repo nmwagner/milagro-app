@@ -388,6 +388,12 @@ body.has-submit-bar { padding-bottom: 96px; }
   line-height: 1.4;
 }
 
+.vineyard-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
 .vineyard-link {
   display: inline-block;
   font-family: var(--font-display);
@@ -395,7 +401,6 @@ body.has-submit-bar { padding-bottom: 96px; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--brass);
-  margin-top: 12px;
 }
 
 /* ---------- Recent entries ---------- */
