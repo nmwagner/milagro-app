@@ -1,6 +1,9 @@
 // Vineyard roster, hand-extracted from the Current folder in Drive.
 // Static reference data: update this array when Max confirms changes,
 // it's not read live from the spreadsheets.
+//
+// lat/lng: fill in once GPS coordinates are available. Leave as null
+// until then, the "View on map" link only renders when both are set.
 const VINEYARDS = [
   {
     name: "Placitas",
@@ -9,6 +12,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "8' x 3.3'",
     note: "",
+    lat: 35.30934776068289,
+    lng: -106.43406948972043,
     url: "https://drive.google.com/file/d/131h9XCNH6gBm8Poin6I9ybz7ynE88Dto/view?usp=drivesdk",
   },
   {
@@ -18,6 +23,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "5' x 7'-10\"",
     note: "Planted 2007",
+    lat: 35.22291708475301,
+    lng: -106.60766790410403,
     url: "https://docs.google.com/spreadsheets/d/1bgdODOuM7xnwsSqCl1TsBwVgS3PRmn0OOybKIp7rwW0/edit",
   },
   {
@@ -27,6 +34,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "6' x 8'",
     note: "Planted 2003",
+    lat: 35.210473361408624,
+    lng: -106.64482539502201,
     url: "https://drive.google.com/file/d/1eIzC5oJVuKHDWveTzIN_J0nvKIun7bDf/view?usp=drivesdk",
   },
   {
@@ -36,6 +45,8 @@ const VINEYARDS = [
     rootstock: "mostly 101-14",
     spacing: "",
     note: "2.49 acres total",
+    lat: 35.22991119784674,
+    lng: -106.62889867817326,
     url: "https://drive.google.com/file/d/1Yu9xJvlhtiUe05_NArgw1ROZg565rTwD/view?usp=drivesdk",
   },
   {
@@ -45,6 +56,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "8'x3.3' (PN), 7.5'x5' (GV)",
     note: "510 Pinot Noir + 350 Gruner Veltliner",
+    lat: 35.24215427684766,
+    lng: -106.59874145212306,
     url: "https://drive.google.com/file/d/1zU-xJJwnxilG4LYpVNWBgF6LqNF4gHM1/view?usp=drivesdk",
   },
   {
@@ -54,6 +67,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "7-8' x 5'",
     note: "",
+    lat: 35.22147035215382,
+    lng: -106.61682106024419,
     url: "https://drive.google.com/file/d/1mx4knRRq4-hXmiPhr5PfI03QjIrB_wpX/view?usp=drivesdk",
   },
   {
@@ -63,6 +78,8 @@ const VINEYARDS = [
     rootstock: "101-14 (Semillon)",
     spacing: "8' x 5'",
     note: "0.765 acres",
+    lat: 35.221316048611484,
+    lng: -106.61187395101312,
     url: "https://drive.google.com/file/d/1AA8bkQxo3IWAZV_JVCOvFlcep0cU743-/view?usp=drivesdk",
   },
   {
@@ -72,6 +89,8 @@ const VINEYARDS = [
     rootstock: "mostly 101-14",
     spacing: "mixed, 8'x6' in newer zone",
     note: "1,200+ vines across multiple zones, exact total not consolidated in source",
+    lat: 35.21592939261745,
+    lng: -106.62924428425723,
     url: "https://drive.google.com/file/d/1hEFJXdUGvuE8L8kb2HZ1SEzx0ODLnADu/view?usp=drivesdk",
   },
   {
@@ -81,6 +100,8 @@ const VINEYARDS = [
     rootstock: "mixed",
     spacing: "mixed, 5.25' to 7' rows",
     note: "",
+    lat: 35.21782895289549,
+    lng: -106.6462746496367,
     url: "https://drive.google.com/file/d/1V945XkzJvk-xDQSbv8S9xPRvGyhnts46/view?usp=drivesdk",
   },
   {
@@ -90,6 +111,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "7.5' x 5'",
     note: "356 Mourvèdre + 222 Gruner Veltliner, planted 2024 to 2025",
+    lat: 35.213281799931764,
+    lng: -106.63977477623132,
     url: "https://drive.google.com/file/d/1K0LGsx_FzY8EXkqloEupgKsAc0AFObHY/view?usp=drivesdk",
   },
   {
@@ -99,6 +122,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "7.5' x 5'",
     note: "728 vines planted 2011 (west) + 607 planted 2021 (east)",
+    lat: 35.228804298002814,
+    lng: -106.64075995336044,
     url: "https://drive.google.com/file/d/1Mu_Sin12BH18YShZH44WVPOSJwFiKPey/view?usp=drivesdk",
   },
   {
@@ -108,6 +133,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "8' x 5'",
     note: "~0.22 acres combined",
+    lat: 35.271691314306295,
+    lng: -106.60299263132299,
     url: "https://drive.google.com/file/d/1ZvYaq_2FRR9Iqqq4Ydx70y8HPX97jVo1/view?usp=drivesdk",
   },
   {
@@ -117,16 +144,9 @@ const VINEYARDS = [
     rootstock: "",
     spacing: "5' x 5'",
     note: "0.065 acres",
+    lat: 35.2134704250261,
+    lng: -106.65278942335138,
     url: "https://drive.google.com/file/d/11n7gnZ-u4o55crfSTgrN_eVCEp0S9i6A/view?usp=drivesdk",
-  },
-  {
-    name: "Saiz",
-    varieties: "Gewürztraminer",
-    vines: 147,
-    rootstock: "",
-    spacing: "7' x 5'",
-    note: "0.094 acres",
-    url: "https://drive.google.com/file/d/1jl88wj2VFWWVX0pxvEkcn7LjOiNiI133/view?usp=drivesdk",
   },
   {
     name: "Fletcher",
@@ -135,6 +155,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "8' x 5'",
     note: "",
+    lat: 35.262700757741214,
+    lng: -106.60906937485194,
     url: "https://drive.google.com/file/d/1ySC_muDh7NEsNudcg8q6XRA6qyL4ENP0/view?usp=drivesdk",
   },
   {
@@ -144,6 +166,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "mixed, 6x8 to 10x6",
     note: "Reflects the 2014 replant snapshot (44 Chardonnay, 20 Sauvignon Blanc, 208 Merlot), not a full current count",
+    lat: 35.21567596105612,
+    lng: -106.62919805111021,
     url: "https://drive.google.com/file/d/1kfJy0Ouw18c28NkmLcU1LGTqWM78BOWj/view?usp=drivesdk",
   },
   {
@@ -153,6 +177,8 @@ const VINEYARDS = [
     rootstock: "",
     spacing: "",
     note: "",
+    lat: 35.23647084120021,
+    lng: -106.63916864932725,
     url: "https://drive.google.com/file/d/1THOb_jh_YDXjcZC4cxVhwOQFOG952QEI/view?usp=drivesdk",
   },
   {
@@ -162,6 +188,8 @@ const VINEYARDS = [
     rootstock: "101-14",
     spacing: "",
     note: "",
+    lat: 35.23417762257243,
+    lng: -106.63978814021458,
     url: "https://drive.google.com/file/d/13pw-Z2Gg5kB6gFdEvdNEh1F_K1IU8K4f/view?usp=drivesdk",
   },
   {
@@ -171,6 +199,8 @@ const VINEYARDS = [
     rootstock: "",
     spacing: "8' x 5'",
     note: "Planted ~2020",
+    lat: 35.233115869879896,
+    lng: -106.60692673432598,
     url: "https://drive.google.com/file/d/1K_ZFFTLTR8m0TSYuifGRjV0o0oOOjS4r/view?usp=drivesdk",
   },
   {
@@ -180,6 +210,8 @@ const VINEYARDS = [
     rootstock: "",
     spacing: "8' rows x 5' vines",
     note: "No planting layout on file, soil and nutrient reference only",
+    lat: 35.24383758123357,
+    lng: -106.62533174362511,
     url: "https://drive.google.com/file/d/1t5GVswWDEZ_n3di2WSqAT2tE9t61qPXB/view?usp=drivesdk",
   },
 ];
