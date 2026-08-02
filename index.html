@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>Milagro</title>
+<meta name="theme-color" content="#14131A" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <span class="mark">Milagro</span>
+    <span class="sub">Cellar &amp; Vineyard</span>
+  </div>
+  <div class="status-dot" id="statusDot">
+    <span class="dot"></span>
+    <span id="statusText">Online</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="hub-block">
+    <div class="hub-block-title">Cellar Management</div>
+    <div class="hub-block-sub">crush &middot; ferment &middot; cellar</div>
+
+    <a class="hub-btn primary" href="ferm-log.html">
+      <div>
+        <div class="label">Fermentation Log</div>
+        <div class="desc">Log temp and Brix readings by lot</div>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <hr class="hub-divider" />
+
+  <div class="hub-block">
+    <div class="hub-block-title">Vineyard Management</div>
+    <div class="hub-block-sub">blocks &middot; irrigation &middot; canopy</div>
+
+    <button class="hub-btn" id="irrigationBtn" type="button">
+      <div>
+        <div class="label">Irrigation Log</div>
+        <div class="desc">Coming soon</div>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </button>
+  </div>
+
+</main>
+
+<div id="toast"></div>
+
+<script src="common.js"></script>
+<script src="hub.js"></script>
+</body>
+</html>

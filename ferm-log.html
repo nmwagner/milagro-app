@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>Ferm Log — Milagro</title>
+<meta name="theme-color" content="#14131A" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="has-submit-bar">
+
+<header class="top">
+  <div class="back-row">
+    <a class="back-arrow" href="index.html">&larr;</a>
+    <div class="brand">
+      <span class="mark">Ferm Log</span>
+      <span class="sub">Cellar Management</span>
+    </div>
+  </div>
+  <div class="status-dot" id="statusDot">
+    <span class="dot"></span>
+    <span id="statusText">Online</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-label">Lot</div>
+    <div class="picker-field" id="varietyField">
+      <span class="val" id="varietyVal">Select variety</span>
+      <span class="chev">&#9662;</span>
+    </div>
+    <div class="picker-row-gap picker-field" id="lotField">
+      <span class="val" id="lotVal">Select lot number</span>
+      <span class="chev">&#9662;</span>
+    </div>
+    <div class="code-readout" id="codeReadout">select variety + lot</div>
+  </section>
+
+  <section>
+    <div class="section-label">Logged at</div>
+    <div class="datetime-row">
+      <div class="datetime-field">
+        <label for="dateInput">Date</label>
+        <input type="date" id="dateInput" />
+      </div>
+      <div class="datetime-field">
+        <label for="timeInput">Time</label>
+        <input type="time" id="timeInput" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Reading</div>
+    <div class="gauge-row">
+      <div class="gauge-field">
+        <label for="tempInput">Temp &deg;F</label>
+        <input type="number" inputmode="decimal" id="tempInput" placeholder="&mdash;" step="0.1" />
+        <div class="gauge-track" id="tempTrack"><div class="gauge-fill" id="tempFill"></div></div>
+      </div>
+      <div class="gauge-field">
+        <label for="brixInput">Brix</label>
+        <input type="number" inputmode="decimal" id="brixInput" placeholder="&mdash;" step="0.1" />
+        <div class="gauge-track" id="brixTrack"><div class="gauge-fill" id="brixFill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Notes <span class="hint">optional</span></div>
+    <textarea id="notesInput" placeholder="Add ice, inoculate, punch down, etc."></textarea>
+  </section>
+
+  <section>
+    <div class="section-label">Entered by</div>
+    <div class="chip-row" id="nameChips"></div>
+    <input type="text" class="text-input" id="nameInput" placeholder="Type your name" />
+  </section>
+
+  <section>
+    <div class="section-label">
+      Recent entries <span class="hint">this session</span>
+    </div>
+    <div class="recent-list" id="recentList">
+      <div class="empty-note">Logged entries will show up here.</div>
+    </div>
+  </section>
+
+</main>
+
+<div class="submit-bar">
+  <div class="submit-inner">
+    <button class="log-btn" id="logBtn" disabled>Log Entry</button>
+  </div>
+  <div class="pending-badge" id="pendingBadge"></div>
+</div>
+
+<div id="toast"></div>
+
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+
+<div class="sheet" id="varietySheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title">Select variety</div>
+  <div class="sheet-list" id="varietyList"></div>
+</div>
+
+<div class="sheet" id="lotSheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title">Select lot number</div>
+  <div class="lot-sheet-grid" id="lotGrid"></div>
+</div>
+
+<script src="common.js"></script>
+<script src="ferm.js"></script>
+</body>
+</html>
