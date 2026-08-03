@@ -1,14 +1,16 @@
-const CACHE_NAME = "milagro-app-v6";
+const CACHE_NAME = "milagro-app-v7";
 const SHELL_FILES = [
   "./index.html",
   "./ferm-log.html",
   "./vineyards.html",
+  "./vineyard-samples.html",
   "./styles.css",
   "./common.js",
   "./hub.js",
   "./ferm.js",
   "./vineyards.js",
   "./vineyards-render.js",
+  "./vineyard-samples.js",
   "./manifest.json",
   "./vineyard-bg.jpg",
   "./icons/icon-192.png",

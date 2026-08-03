@@ -1,4 +1,9 @@
-// Shared across every page: status dot, toast, service worker registration.
+// Shared across every page: status dot, toast, service worker registration,
+// and the one Apps Script backend URL every page talks to.
+
+const CONFIG = {
+  API_URL: "PASTE_APPS_SCRIPT_WEB_APP_URL_HERE",
+};
 
 const $ = (id) => document.getElementById(id);
 

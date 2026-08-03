@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>Vineyard Samples — Milagro</title>
+<meta name="theme-color" content="#14131A" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="top">
+  <div class="back-row">
+    <a class="back-arrow" href="index.html">&larr;</a>
+    <div class="brand">
+      <span class="mark">Vineyard Samples</span>
+      <span class="sub">Vineyard Management</span>
+    </div>
+  </div>
+  <div class="status-dot" id="statusDot">
+    <span class="dot"></span>
+    <span id="statusText">Online</span>
+  </div>
+</header>
+
+<main>
+  <div class="picker-field" id="comboField">
+    <span class="val" id="comboVal">Select vineyard &amp; variety</span>
+    <span class="chev">&#9662;</span>
+  </div>
+
+  <div id="loadingNote" class="empty-note">Loading 2026 samples&hellip;</div>
+
+  <div id="dateListView" style="display:none;">
+    <div class="section-label">Recent samples</div>
+    <div id="dateList"></div>
+  </div>
+
+  <div id="comboView" style="display:none;">
+    <a href="#" class="back-to-all" id="backToAll">&larr; All samples</a>
+    <div class="stat-row" id="statRow"></div>
+
+    <div class="chart-card">
+      <div class="chart-legend">
+        <span><span class="swatch actual"></span>Actual</span>
+        <span><span class="swatch trend"></span>Trend, +5 days projected</span>
+      </div>
+      <div id="chartWrap"></div>
+    </div>
+
+    <div class="section-label">Sample log</div>
+    <table class="sample-table" id="sampleTable"></table>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+<div class="sheet" id="comboSheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title">Select vineyard &amp; variety</div>
+  <div class="sheet-list" id="comboList"></div>
+</div>
+
+<script src="common.js"></script>
+<script src="vineyard-samples.js"></script>
+</body>
+</html>
