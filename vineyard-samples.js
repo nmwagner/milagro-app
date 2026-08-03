@@ -75,8 +75,9 @@ function applySamples(samples) {
 // Combos: grouped by vineyard, variety nested underneath
 // ---------------------------------------------------------------
 function parseDate(s) {
-  const [m, d, y] = s.split("/").map(Number);
-  return new Date(2000 + y, m - 1, d);
+  const [m, d, yRaw] = s.split("/").map(Number);
+  const y = yRaw < 100 ? 2000 + yRaw : yRaw;
+  return new Date(y, m - 1, d);
 }
 
 function buildCombos() {
