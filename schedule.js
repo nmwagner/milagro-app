@@ -46,7 +46,7 @@ async function loadSchedule(opts) {
     return;
   }
   if (!navigator.onLine) {
-    if (!cached) $("loadingNote").textContent = "Offline, and no saved schedule on this device yet.";
+    if (!cached) $("loadingNote").textContent = "Offline, and no saved calendar on this device yet.";
     return;
   }
 
@@ -62,12 +62,12 @@ async function loadSchedule(opts) {
     };
     applyData(fresh);
     saveCache(fresh);
-    if (opts.silent) showToast("Schedule refreshed");
+    if (opts.silent) showToast("Calendar refreshed");
   } catch (err) {
     if (!cached) {
-      $("loadingNote").textContent = "Couldn't reach the server, and no saved schedule on this device yet.";
+      $("loadingNote").textContent = "Couldn't reach the server, and no saved calendar on this device yet.";
     } else if (!opts.silent) {
-      showToast("Couldn't refresh, showing last saved schedule");
+      showToast("Couldn't refresh, showing last saved calendar");
     }
   }
 }
@@ -324,7 +324,7 @@ function renderList() {
     html += `</div>`;
   }
 
-  if (!html) html = `<div class="empty-note">Nothing on the schedule.</div>`;
+  if (!html) html = `<div class="empty-note">Nothing on the calendar.</div>`;
 
   wrap.innerHTML = html;
   wrap.querySelectorAll(".sched-check").forEach((el) => {
