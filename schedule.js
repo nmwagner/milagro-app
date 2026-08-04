@@ -197,6 +197,16 @@ function pluralize(n, word) {
   return `${n} ${word}${n === 1 ? "" : "s"}`;
 }
 
+// Titles and notes are free-typed text from Calendar/Tasks, not markup —
+// escape before dropping them into innerHTML so a stray "<" or "&" in
+// someone's note (e.g. "cost < $200") can't break the row.
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 // ---------------------------------------------------------------
 // Week strip
 // ---------------------------------------------------------------
@@ -264,7 +274,7 @@ function renderChips() {
 function eventRow(e) {
   return `<div class="sched-row event">
     <span class="sched-time">${e.allDay ? "All day" : fmtTime(e.time)}</span>
-    <span class="sched-title">${e.title}</span>
+    <div class="sched-main"><span class="sched-title">${escapeHtml(e.title)}</span></div>
   </div>`;
 }
 
@@ -272,9 +282,13 @@ function taskRow(t, overdue) {
   const dueLabel = overdue
     ? `${daysBetween(t.due, TODAY)}d overdue`
     : (t.due ? fmtShortDate(t.due) : "");
-  return `<div class="sched-row task${overdue ? " overdue" : ""}">
+  const hasNotes = !!(t.notes && t.notes.trim());
+  return `<div class="sched-row task${overdue ? " overdue" : ""}${hasNotes ? " has-notes" : ""}">
     <span class="sched-check${t.done ? " done" : ""}" data-id="${t.id}"></span>
-    <span class="sched-title${t.done ? " done" : ""}">${t.title}</span>
+    <div class="sched-main">
+      <span class="sched-title${t.done ? " done" : ""}">${escapeHtml(t.title)}</span>
+      ${hasNotes ? `<span class="sched-notes">${escapeHtml(t.notes)}</span>` : ""}
+    </div>
     ${dueLabel ? `<span class="sched-due">${dueLabel}</span>` : ""}
   </div>`;
 }
@@ -329,5 +343,11 @@ function renderList() {
   wrap.innerHTML = html;
   wrap.querySelectorAll(".sched-check").forEach((el) => {
     el.addEventListener("click", () => toggleTask(el.dataset.id));
+  });
+  wrap.querySelectorAll(".sched-row.task.has-notes").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (e.target.classList.contains("sched-check")) return;
+      el.classList.toggle("expanded");
+    });
   });
 }

@@ -492,8 +492,15 @@ table.sample-table td.muted { color: var(--text-muted); }
 .sched-row:last-child { border-bottom: none; }
 .sched-row.event::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--cold); flex-shrink: 0; }
 .sched-time { font-family: var(--font-data); font-size: 12px; color: var(--cold); width: 72px; flex-shrink: 0; }
-.sched-title { font-size: 14px; color: var(--text); flex: 1; }
+.sched-main { flex: 1; min-width: 0; }
+.sched-title { font-size: 14px; color: var(--text); display: block; }
 .sched-title.done { text-decoration: line-through; color: var(--text-muted); }
+.sched-notes {
+  display: block; font-size: 12px; color: var(--text-muted); line-height: 1.35; margin-top: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sched-row.expanded .sched-notes { white-space: normal; }
+.sched-row.task.has-notes { cursor: pointer; }
 
 .sched-check {
   width: 20px; height: 20px; border-radius: 5px; border: 1.5px solid var(--border);
