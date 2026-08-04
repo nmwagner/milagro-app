@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>Schedule — Milagro</title>
+<meta name="theme-color" content="#14131A" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="top">
+  <div class="back-row">
+    <a class="back-arrow" href="index.html">&larr;</a>
+    <div class="brand">
+      <span class="mark">Schedule</span>
+      <span class="sub">Operations</span>
+    </div>
+  </div>
+  <div class="status-dot" id="statusDot">
+    <span class="dot"></span>
+    <span id="statusText">Online</span>
+  </div>
+</header>
+
+<main>
+
+  <div id="loadingNote" class="empty-note">Loading schedule&hellip;</div>
+
+  <div id="scheduleContent" style="display:none;">
+
+    <section>
+      <div class="week-strip" id="weekStrip"></div>
+      <div class="chip-row" id="filterChips"></div>
+    </section>
+
+    <section>
+      <div class="section-label">Upcoming <span class="hint">events &amp; tasks</span></div>
+      <div id="scheduleList"></div>
+    </section>
+
+  </div>
+
+</main>
+
+<div id="toast"></div>
+
+<script src="common.js"></script>
+<script src="schedule.js"></script>
+</body>
+</html>

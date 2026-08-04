@@ -2,7 +2,7 @@
 // and the one Apps Script backend URL every page talks to.
 
 const CONFIG = {
-  API_URL: "https://script.google.com/macros/s/AKfycbxwc6LzEq-nZ6hg3Sv5-Kn71zN_QkvaRBZ3swY8CV9fNO7fjuvbCRYNcO5XB01vlvnNIg/exec",
+  API_URL: "https://script.google.com/macros/s/AKfycbxLTFVQ4tVvawJgJqcCe5zA-6lBStMsG_8VGdZOQfbaMhzlYkM33ySquGtG3p_jatVMFA/exec",
 };
 
 const $ = (id) => document.getElementById(id);

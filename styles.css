@@ -414,6 +414,7 @@ body.has-submit-bar { padding-bottom: 96px; }
   font-family: var(--font-data); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--brass); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
 }
+.date-group-header.overdue { color: var(--hot); }
 .date-row {
   display: flex; align-items: center; justify-content: space-between;
   padding: 9px 2px; font-size: 14px; cursor: pointer;
@@ -457,6 +458,54 @@ table.sample-table td.muted { color: var(--text-muted); }
 .combo-row.selected { background: var(--wine); border-color: var(--wine-hover); }
 .combo-row .name { font-size: 13px; color: var(--text); }
 .combo-row .n { font-family: var(--font-data); font-size: 11px; color: var(--text-muted); }
+
+/* ---------- Schedule ---------- */
+.week-strip {
+  display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px;
+  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.week-strip::-webkit-scrollbar { display: none; }
+.week-day {
+  scroll-snap-align: start; flex-shrink: 0; width: 100px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 10px 9px 9px; display: flex; flex-direction: column; gap: 6px;
+  cursor: pointer; transition: all .12s ease;
+}
+.week-day .wd-top { display: flex; align-items: baseline; gap: 6px; }
+.week-day .wd-name { font-family: var(--font-display); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
+.week-day .wd-num { font-family: var(--font-data); font-size: 14px; font-weight: 600; color: var(--text); }
+.week-day .wd-counts { display: flex; flex-direction: column; gap: 2px; }
+.week-day .wd-count { font-family: var(--font-data); font-size: 11px; }
+.week-day .wd-count.event { color: var(--cold); }
+.week-day .wd-count.task { color: var(--brass); }
+.week-day .wd-count.none { color: var(--text-muted); opacity: .5; }
+.week-day.today { border-color: var(--brass); }
+.week-day.today .wd-name { color: var(--brass); }
+.week-day.selected { background: var(--wine); border-color: var(--wine-hover); }
+.week-day.selected .wd-name, .week-day.selected .wd-num { color: var(--text); }
+.week-day.selected .wd-count.event, .week-day.selected .wd-count.task { color: var(--text); }
+
+.sched-row {
+  display: flex; align-items: center; gap: 12px; padding: 11px 2px;
+  border-bottom: 1px solid rgba(58,53,66,0.5);
+}
+.sched-row:last-child { border-bottom: none; }
+.sched-row.event::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--cold); flex-shrink: 0; }
+.sched-time { font-family: var(--font-data); font-size: 12px; color: var(--cold); width: 72px; flex-shrink: 0; }
+.sched-title { font-size: 14px; color: var(--text); flex: 1; }
+.sched-title.done { text-decoration: line-through; color: var(--text-muted); }
+
+.sched-check {
+  width: 20px; height: 20px; border-radius: 5px; border: 1.5px solid var(--border);
+  flex-shrink: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all .12s ease;
+}
+.sched-check.done { background: var(--green); border-color: var(--green); }
+.sched-check.done::after { content: "✓"; font-size: 12px; color: var(--bg); font-weight: 700; }
+.sched-row.task.overdue .sched-check { border-color: var(--hot); }
+
+.sched-due { font-family: var(--font-data); font-size: 11px; color: var(--text-muted); flex-shrink: 0; }
+.sched-row.task.overdue .sched-due { color: var(--hot); }
 
 /* ---------- Recent entries ---------- */
 .recent-list { display: flex; flex-direction: column; gap: 8px; }
