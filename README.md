@@ -6,6 +6,7 @@ A mobile PWA hub for cellar and vineyard data, hosted at `nmwagner.github.io/mil
 
 **Operations**
 - **Calendar** — a two-week day strip up top (each day shows how many events and tasks land on it; tap a day to jump the list to it), an All/Events/Tasks filter, then an agenda grouped by day with overdue tasks pinned above everything else. Reads Google Calendar and Google Tasks from `vineyardsmilagro@gmail.com`. Checking a task off marks it complete in Google Tasks too — works offline, queues the change locally and syncs once you're back online, same pattern as the Ferm Log's reading queue.
+- **Harvest Log** — season totals up top (total harvested, picking days, vineyards picked), a by-variety breakdown with clone splits and cross-season naming drift folded into one canonical name per grape, then a day-by-day picking log, most recent pick first, with each entry showing its year-over-year change against last season. Read-only, reads live from `Picking_Data_2026`.
 
 **Cellar Management**
 - **Fermentation Log** — pick a variety, then a lot number, and the app builds the lot code itself (Chardonnay + 3 → `CH26-03`). Date and time prefill to now, still editable for backfilling. Temp and Brix are numeric-only. Entered by defaults to Max, Laura, Amy, or type any other name. Writes to `Ferm_Master_Log_2026`, works offline with a local queue that syncs once you're back online.
@@ -17,7 +18,7 @@ A mobile PWA hub for cellar and vineyard data, hosted at `nmwagner.github.io/mil
 
 ## One backend, one deployment
 
-All data-driven pages (Ferm Log, Vineyard Samples, Calendar, and eventually Irrigation Log) talk to the same Apps Script Web App through one shared URL, set once in `common.js`. You don't need a separate deployment per feature.
+All data-driven pages (Ferm Log, Vineyard Samples, Calendar, Harvest Log, and eventually Irrigation Log) talk to the same Apps Script Web App through one shared URL, set once in `common.js`. You don't need a separate deployment per feature.
 
 ## Migrating the backend to vineyardsmilagro@gmail.com
 
@@ -70,6 +71,7 @@ milagro-app/
   vineyards.html
   vineyard-samples.html
   schedule.html           (the Calendar tab)
+  harvest-log.html
   styles.css
   common.js               (shared utilities + CONFIG.API_URL)
   hub.js
@@ -78,6 +80,7 @@ milagro-app/
   vineyards-render.js
   vineyard-samples.js
   schedule.js             (the Calendar tab)
+  harvest.js
   manifest.json
   service-worker.js
   vineyard-bg.jpg
@@ -94,6 +97,7 @@ Visit `nmwagner.github.io/milagro-app/`. From the hub:
 - **Vineyards** — confirm the roster loads and links open the right sheets.
 - **Vineyard Samples** — confirm it loads real 2026 samples. If nothing's been sampled yet this season, you'll see an empty state rather than a chart, that's expected.
 - **Calendar** — confirm the day strip and agenda show real events and tasks from `vineyardsmilagro@gmail.com`. Check a task off, confirm it shows completed in Google Tasks too. Try airplane mode, confirm the checkbox still marks it done locally and syncs once you're back online.
+- **Harvest Log** — confirm it loads real picks from `Picking_Data_2026`. If nothing's been picked yet this season, you'll see an empty state rather than the stats/breakdown/log, that's expected.
 - **Irrigation Log** — confirm the "coming soon" toast.
 
 If you had the app installed to your home screen already, remove and re-add it (or force-refresh once), the service worker cache name changes with each meaningful update specifically so stale files get replaced instead of lingering.
@@ -104,4 +108,7 @@ If you had the app installed to your home screen already, remove and re-add it (
 - Vineyard Samples is read-only, it doesn't write anything, samples still get logged into `Vineyard_Samples_2026` the way you already do it.
 - The Vineyards roster (`vineyards.js`) is static reference data, not pulled live. Edit that file directly and push when something changes.
 - The Calendar tab reads Google Calendar and Tasks live from `vineyardsmilagro@gmail.com`; there's no login, so everyone who opens the app sees the same calendar and task lists. Tasks checked off more than a few days ago drop out of the feed automatically so it doesn't slowly fill up with old completions — see `COMPLETED_TASK_LOOKBACK_DAYS` in `Code.gs` if you want that window longer or shorter.
+- Harvest Log is read-only, same as Vineyard Samples — it doesn't write anything, picks still get logged into `Picking_Data_2026` the way you already do it during harvest.
+- The picking sheet's variety names drift season to season (2025's "Sauv Blanc" vs. this year's "Sauvignon Blanc", clone suffixes like "Cabernet Sauvignon New" or "Chardonnay 15") — `harvest.js` has a canonical variety table with an alias map that folds all of that into one name per grape for the season rollups. Add new aliases there as naming drifts; anything genuinely unrecognized shows up as-typed with a gray chip instead of guessing red or white.
+- `PICKING_DATA_SHEET_ID` in `Code.gs` needs to be swapped to next season's sheet at the start of each harvest, same as `FERM_LOG_SHEET_ID` and `VINEYARD_SAMPLES_SHEET_ID`.
 - Irrigation Log is a placeholder. When you're ready to spec it out, it slots into the same hub pattern as everything else.

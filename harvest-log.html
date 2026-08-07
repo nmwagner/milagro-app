@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>Harvest Log — Milagro</title>
+<meta name="theme-color" content="#14131A" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="top">
+  <div class="back-row">
+    <a class="back-arrow" href="index.html">&larr;</a>
+    <div class="brand">
+      <span class="mark">Harvest Log</span>
+      <span class="sub">Operations</span>
+    </div>
+  </div>
+  <div class="status-dot" id="statusDot">
+    <span class="dot"></span>
+    <span id="statusText">Online</span>
+  </div>
+</header>
+
+<main>
+  <div id="loadingNote" class="empty-note">Loading harvest data&hellip;</div>
+
+  <div id="harvestBody" style="display:none;">
+    <div class="stat-grid">
+      <div class="stat-box wide">
+        <div class="label">Total harvested</div>
+        <div class="value brass" id="statTotal">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">Picking days</div>
+        <div class="value" id="statDays">—</div>
+        <div class="sub" id="statRange">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">Vineyards picked</div>
+        <div class="value" id="statVineyards">—</div>
+      </div>
+    </div>
+
+    <div class="section-label">By variety</div>
+    <div class="stack-bar" id="stackBar"></div>
+    <div class="variety-list" id="varietyList"></div>
+
+    <div class="section-label">Picking log</div>
+    <div id="tlBody"></div>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<script src="common.js"></script>
+<script src="harvest.js"></script>
+</body>
+</html>
